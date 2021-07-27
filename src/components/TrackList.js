@@ -39,16 +39,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function Players(props) {
+function TrackList(props) {
 
     return (
 <>
         <List >
-        { props.players.map( (key, idx) => {  
+        { props.tracks_data.map( (key, idx) => {  
           return (
             <ListItem key={idx} divider={true}>
               <ListItemText
-               primary={`${props.players[idx].nimi}`}
+               primary={`${props.tracks_data[idx].nimi}`}
               />
 
 
@@ -67,7 +67,7 @@ function Players(props) {
           fullWidth
           disabled
          
-        > Lisää pelaaja (tba)
+        > Lisää rata (tba)
     </Button>
 
 </>
@@ -75,4 +75,4 @@ function Players(props) {
     );
   }
   
-  export default Players;
+  export default TrackList;

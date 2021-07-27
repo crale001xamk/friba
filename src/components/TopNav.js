@@ -2,7 +2,8 @@ import { AppBar, Typography, Tabs, Tab } from '@material-ui/core';
 import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from 'react-router-dom';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import PersonIcon from '@material-ui/icons/Person';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,8 +31,10 @@ function TopNav() {
 
     const currentTab = () => {
         let path = window.location.pathname
-        if (path === "/d3_paragon_calculator/") return 0
-        else if (path === "/d3_paragon_calculator/compare") return 1
+        if (path === "/friba/newrun/") return 0
+        else if (path === "/friba/players") return 1
+        else if (path === "/friba/tracklist") return 2
+        else if (path === "/friba/results") return 3
     }
 
     const [value, setValue] = useState(currentTab());
@@ -39,7 +42,7 @@ function TopNav() {
     return(
         <>
         <Typography component={Link} to="/" className={classes.title} variant="h5">
-            Frisbee golf -pal
+            Frisbee golf -buddy
             </Typography>
         
         <AppBar className={classes.root}>
@@ -51,10 +54,11 @@ function TopNav() {
                     role="tabpanel"
                     onChange={handleChange}
                 >
-                    <Tab value={0} icon={<PersonAddIcon />} component={Link} to="/d3_paragon_calculator/" />
-                    <Tab value={1} label="Radat" component={Link} to="/d3_paragon_calculator/compare" />
-                    <Tab value={2} label="Tulokset" component={Link} to="/d3_paragon_calculator/compare" />
-                    <Tab value={3} label="info" component={Link} to="/d3_paragon_calculator/compare" />
+                    
+                    <Tab value={0} icon={<AddCircleIcon/>} component={Link} to="/friba/newrun/" />
+                    <Tab value={1} icon={<PersonIcon />} component={Link} to="/friba/players" />
+                    <Tab value={2} label="Radat" component={Link} to="/friba/tracklist" />
+                    <Tab value={3} label="Tulokset" component={Link} to="/friba/results" />
                     
                  
                 </Tabs>
